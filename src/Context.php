@@ -10,9 +10,9 @@ class Context
 
     public string $content = '';
 
-    public string $body = '';
+    private string $body = '';
 
-    public string $author = '';
+    private string $author = '';
 
     public function setBody(string $body)
     {

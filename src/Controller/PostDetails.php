@@ -8,7 +8,7 @@ use silverorange\DevTest\Model;
 
 class PostDetails extends Controller
 {
-    private ?Model\Post $post = null;
+    private  $post = null;
 
     public function getContext(): Context
     {
@@ -18,9 +18,9 @@ class PostDetails extends Controller
             $context->title = 'Not Found';
             $context->content = "A post with id {$this->params[0]} was not found.";
         } else {
-            $context->title = $this->post->title;
+            $context->title = $this->post['title'];
             $context->setBody($this->post['body']);
-            $context->setAuthor($this->post['author']);
+            $context->setAuthor($this->post['full_name']);
         }
 
         return $context;
