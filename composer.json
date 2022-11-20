@@ -12,6 +12,7 @@
   ],
   "require": {
     "php": ">=7.4.30",
+    "ext-pdo": "*",
     "erusev/parsedown": "^1.7"
   },
   "require-dev": {

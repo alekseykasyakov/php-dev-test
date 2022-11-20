@@ -4,10 +4,17 @@ namespace silverorange\DevTest\Model;
 
 class Post
 {
-    public string $id;
-    public string $title;
-    public string $body;
-    public string $created_at;
-    public string $modified_at;
-    public string $author;
+    private $db;
+
+    public function __construct(\PDO $db)
+    {
+        $this->db = $db;
+    }
+
+    public function save($data): void
+    {
+        $query = ("INSERT INTO Posts (id, title, body, created_at, modified_at, author)
+                   VALUES (:id, :title, :body, :created_at, :modified_at, :author)");
+        $this->db->prepare($query)->execute($data);
+    }
 }
